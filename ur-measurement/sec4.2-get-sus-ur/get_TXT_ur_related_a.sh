@@ -1,0 +1,1 @@
+cat ./middle/get_TXT_ur_related_targets.txt | ./zdns_linux alookup --threads 300 --result-verbosity trace | grep "NOERROR" > ./middle/txt_related_a.json

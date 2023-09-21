@@ -1,0 +1,4 @@
+#! /bin/sh
+
+cat ./detect_protecting_records/all_ns_set.txt |./zdns alookup --threads 150 --ipv4-lookup --retries 10 --result-verbosity trace --name-server-mode --override-name="your_domain.com" | grep -vE "\"status\":\"(REFUSED|SERVFAIL|NXDOMAIN)\"" | grep -vE "\"answer\":\"66\.66\.66\.66\"" > ./detect_protecting_records/alookup_check_protect.json
+cat ./detect_protecting_records/all_ns_set.txt |./zdns TXT --threads 150 --ipv4-lookup --retries 10 --result-verbosity trace --name-server-mode --override-name="your_domain.com" | grep -vE "\"status\":\"(REFUSED|SERVFAIL|NXDOMAIN)\"" | grep -vE "\"name\":\"TXT_TEST\"" > ./detect_protecting_records/txt_check_protect.json

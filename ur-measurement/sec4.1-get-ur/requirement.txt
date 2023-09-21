@@ -1,0 +1,4 @@
+eventlet
+geoip2
+pandas
+numpy
